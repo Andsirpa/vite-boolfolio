@@ -1,15 +1,17 @@
 <script>
 import axios from 'axios';
+import { api } from './store';
 
 export default {
   data() {
     return {
       title: 'Vite Boolfolio',
+      projects: [],
     }
   },
 
   created() {
-    axios.get('http://127.0.0.1:8000/api/projects').then((response) => {
+    axios.get(store.api.baseUrl + 'project').then((response) => {
       this.projects = response.data.data;
     })
   }
