@@ -25,6 +25,11 @@ export default {
   <div class="container">
     <h1>{{ title }}</h1>
 
+    <div class="row row-cols-4 g-3">
+      <project-card v-for="project in store.projects" :project="project" />
+
+    </div>
+
     <!-- <div v-for="project in store.projects">
       <ul>
         <li><strong>ID: </strong> {{ project.id }}</li>
