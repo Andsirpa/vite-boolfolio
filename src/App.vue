@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 
 export default {
   data() {
@@ -7,9 +8,13 @@ export default {
     }
   },
 
-  components: {
+  created() {
+    axios.get('').then((response) => { })
+  }
 
-  },
+  // components: {
+
+  // }
 }
 </script>
 
