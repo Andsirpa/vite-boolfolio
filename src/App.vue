@@ -1,32 +1,31 @@
 <script>
 import axios from 'axios';
-import { api } from './store';
+import { api, store } from './store';
+import ProjectCard from "./components/ProjectCard";
 
 export default {
   data() {
     return {
       title: 'Vite Boolfolio',
-      projects: [],
-    }
+      store,
+    };
   },
+
+  components: { ProjectCard },
 
   created() {
     axios.get(store.api.baseUrl + 'project').then((response) => {
-      this.projects = response.data.data;
-    })
-  }
-
-  // components: {
-
-  // }
-}
+      store.projects = response.data.data;
+    });
+  },
+};
 </script>
 
 <template>
   <div class="container">
     <h1>{{ title }}</h1>
 
-    <div v-for="project in projects">
+    <!-- <div v-for="project in store.projects">
       <ul>
         <li><strong>ID: </strong> {{ project.id }}</li>
         <li><strong>Title: </strong> {{ project.title }}</li>
@@ -34,7 +33,7 @@ export default {
         <li><strong>Description: </strong> {{ project.description }}</li>
       </ul>
 
-    </div>
+    </div> -->
   </div>
 </template>
 
